@@ -45,19 +45,19 @@ bookSchema.post('save', async function (doc: IBook) {
   });
 });
 
-// Middleware to delete a book from Elasticsearch before deletion
-bookSchema.pre('findOneAndDelete', async function (next) {
-  try {
-    const doc = await this.model.findOne(this.getQuery()); // Use model to find the document
-    if (doc) {
-      await client.delete({
-        index: 'books',
-        id: doc._id.toString(),
-      });
-    }
-    next();
-  } catch (err:any) {
-    next(err);
-  }
-});
+// // Middleware to delete a book from Elasticsearch before deletion
+// bookSchema.pre('findOneAndDelete', async function (next) {
+//   try {
+//     const doc = await this.model.findOne(this.getQuery()); // Use model to find the document
+//     if (doc) {
+//       await client.delete({
+//         index: 'books',
+//         id: doc._id.toString(),
+//       });
+//     }
+//     next();
+//   } catch (err:any) {
+//     next(err);
+//   }
+// });
 export const Books = model<IBook>("books",bookSchema);
