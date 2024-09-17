@@ -11,9 +11,10 @@ export const searchBooks = async (query: string): Promise<ElasticsearchHit[]> =>
           multi_match: {
             query,
             fields: ['title', 'author', 'description'],
-          },
-        },
-      },
+            fuzziness: 'AUTO' // Optional: for partial matches and typos
+          }
+        }
+      }
     });
 
     // Extract and format hits from the response
@@ -23,7 +24,8 @@ export const searchBooks = async (query: string): Promise<ElasticsearchHit[]> =>
         _id: hit._id as string, // Assert _id is a string
         _source: hit._source as IBook, // Assert _source is of type IBook
       }));
-
+      console.log("query==",query);
+      console.log("data==",hits);
     return hits;
   } catch (error: any) {
     throw new Error(error?.message);

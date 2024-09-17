@@ -26,3 +26,7 @@ export interface IAddBook{
   description: string;
   cover?: string;
 }
+export interface ElasticsearchHit {
+  _id?: string;
+  _source: IBook;
+}

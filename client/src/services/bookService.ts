@@ -15,8 +15,8 @@ export const fetchBooks = async (page: number):Promise<IFetchBookRes|null> => {
 
 // Search books by query
 export const searchBooks = async (query: string) => {
-  const res = await axios.get(`${URL}/api/books/search?query=${query}`);
-  return res.data;
+  const res = await axios.get(`${URL}/api/search?query=${query}`);
+  return res.data.data;
 };
 
 // Fetch a single book by ID

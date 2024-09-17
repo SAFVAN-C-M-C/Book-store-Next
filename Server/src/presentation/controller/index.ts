@@ -5,6 +5,7 @@ import { getBookByIdController } from "./getBookById"
 import { getBooksController } from "./getBooks"
 import { updateBookByIdController } from "./updateBookById"
 import { getSignedUrlController } from "./getSignedUrl"
+import { searchBooksController } from "./searchBooks"
 
 
 export const controllers = (dependencies: IDependencies) => {
@@ -14,6 +15,7 @@ export const controllers = (dependencies: IDependencies) => {
         getBookById:getBookByIdController(dependencies),
         getBooks:getBooksController(dependencies),
         updateBookById:updateBookByIdController(dependencies),
-        getSignedUrl:getSignedUrlController(dependencies)
+        getSignedUrl:getSignedUrlController(dependencies),
+        searchBooks:searchBooksController(dependencies),
     }
 }

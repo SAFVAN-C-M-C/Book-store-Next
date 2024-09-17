@@ -6,7 +6,6 @@ import React, {
   FC,
   SetStateAction,
   useEffect,
-  useState,
 } from "react";
 import BookCard from "./BookCard";
 import NothingHere from "./NothingHere";

@@ -3,7 +3,7 @@ import { controllers } from "@/presentation/controller";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 
 export const routes = (dependencies: IDependencies) => {
-  const { createBook,deleteBookById,getBookById,getBooks,updateBookById,getSignedUrl} =
+  const { createBook,deleteBookById,getBookById,getBooks,updateBookById,getSignedUrl,searchBooks} =
     controllers(dependencies);
 
   const router = Router();
@@ -13,7 +13,9 @@ export const routes = (dependencies: IDependencies) => {
   route('/book/:id').get(getBookById)
   route('/book/update/:id').put(updateBookById)
   route('/book/delete/:id').delete(deleteBookById)
+  route('/search').get(searchBooks) 
   route('/get/signedUrl').get(getSignedUrl) 
+
 
   return router;
 };
